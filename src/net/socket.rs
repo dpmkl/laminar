@@ -96,7 +96,7 @@ impl Socket {
 
     /// Binds to any local port on the system, if available, with a given config
     pub fn bind_any_with_config(config: Config) -> Result<Self> {
-        let loopback = Ipv4Addr::new(127, 0, 0, 1);
+        let loopback = Ipv4Addr::new(0, 0, 0, 0);
         let address = SocketAddrV4::new(loopback, 0);
         let socket = UdpSocket::bind(address)?;
         Self::bind_internal(socket, config)
